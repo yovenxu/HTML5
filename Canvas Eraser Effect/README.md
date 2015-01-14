@@ -1,8 +1,11 @@
 # Canvas实现橡皮擦效果
 ![Effect img](https://raw.githubusercontent.com/yovenxu/HTML5/master/Canvas%20Eraser%20Effect/img/effect.png)
 
-###主要使用到的canvas属性
-#####globalCompositeOperation
+####主要使用到的canvas属性：globalCompositeOperation
+globalCompositeOperation 属性设置或返回如何将一个源（新的）图像绘制到目标（已有）的图像上。
+源图像 = 您打算放置到画布上的绘图。
+目标图像 = 您已经放置在画布上的绘图。
+默认值为：source-over。
 ![globalCompositeOperation img](https://raw.githubusercontent.com/yovenxu/HTML5/master/Canvas%20Eraser%20Effect/img/globalCompositeOperation.png)
 以上图片的实现js代码如下：
 
@@ -37,6 +40,4 @@
 		document.write("</div>");
 	}
 
-使用html5 canvas能实现的效果真的是非常多，只要发挥想象空间，简直就可以实现一个小型的绘图工具。
-在这里通过自己的实践，做了个canvas的橡皮擦效果。
-橡皮擦的效果主要是使用canvas的globalCompositeOperation=destination-out属性来实现的。
+html5 canvas可以实现的效果还有很多，我们想象发挥的空间还很大。
