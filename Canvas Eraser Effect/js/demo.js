@@ -71,7 +71,9 @@
 		function redraw () {
 			//设置笔画的叠加效果为类似橡皮擦的效果
 			context.globalCompositeOperation = 'destination-out';
-			context.strokeStyle = "rgba(0,0,0,1)";
+
+			//这里笔触的颜色已经无关紧要，因为是橡皮擦的效果
+			context.strokeStyle = "red";
 			context.lineWidth = radius;
 			context.lineJoin = 'round';
 
