@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DeviceOrientation</title>
+    <style>
+    * {margin: 0; padding: 0;}
+    body, html {width:100%;height:100%;}
+    #tips {width:100%;height:100%;background:#eee;text-align:center;font-size:3em; color: #666;}
+    #tips p {padding: 40% 0 0 0;}
+    #tips p span {font-size:4em; color:#000;}
+    </style>
+</head>
+<body>
+    <div id="tips">
+        <p>你现在所面对的方向是：<br><span id="direction">南面</span></p>
+    </div>
+    <script>
+    (function () {
+        //支持指南针功能
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function (e) {
+                //ios设备的alpha会认为手机初始方向为正北，所以ios设备的话要使用webkitCompassHeading来获取角度
+                var alphaAngle = e.webkitCompassHeading ? e.webkitCompassHeading : e.alpha;
+
+                //Alpha代表了设备绕Z轴的旋转,简单的说,就是代表了水平方向的顺时针运动角度,主要表示方位,它的值在0-360度之前,0度代表设备正对着地球的正北方
+                alpha(alphaAngle);
+
+                //Beta代表了设备绕X轴的旋转,简单的说,就是表示设备在竖着状态时,上下垂直旋转的角度,它的值在-180度-180度之间,0度代表设备和地球表面保持水平
+                beta(e.beta);
+
+                //Gamma代表了设备绕Y轴的旋转,简单的说,就是表示设备在竖着状态时,左右垂直旋转的角度,它的值在-90度-90度之间,0度代表设备和地球表面保持水平
+                gama(e.gama);
+            }, false);
+
+            function alpha (alpha) {
+                var direction = '';
+                switch (true) {
+                    case alpha > 270 :
+                        direction = '北面';
+                        break;
+                    case alpha > 180 :
+                        direction = '西面';
+                        break;
+                    case alpha > 90 :
+                        direction = '南面';
+                        break;
+                    default :
+                        direction = '东面';
+                        break;
+                }
+
+                document.getElementById('direction').innerHTML = direction+alpha;
+            }
+
+            function beta (beta) {
+                
+            }
+
+            function gama (gama) {
+                
+            }
+        }
+        else {
+            document.getElementById('tips').innerHTML = 'Sorry, your browser doesn\'t support Device Orientation !';
+        }
+    })();
+    </script>
+</body>
+</html>
