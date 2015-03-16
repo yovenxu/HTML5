@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scale=no" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>mobile slider</title>
+    <script type="text/javascript" src="Slider.js"></script>
+    <style>
+    body {
+        margin:0;
+        padding:0;
+        background: #333;
+        overflow: hidden;
+    }
+    ul, li {
+        list-style:none;
+        padding:0;
+        margin:0;
+        overflow: hidden;
+        height:100%;
+    }
+    li {
+        position: absolute;
+        display: -webkit-box;
+        -webkit-box-pack:center;
+        -webkit-box-align:center;
+    }
+    </style>
+</head>
+<body>
+    <div id="canvas"></div>
+
+    <script>
+    var list = [
+        { width : 914, height : 609, img : '3.jpg' },
+        { width : 680, height : 510, img : '4.jpg' },
+        { width : 500, height : 598, img : '5.jpg' },
+        { width : 915, height : 634, img : '6.jpg' },
+        { width : 610, height : 915, img : '7.jpg' },
+        { width : 915, height : 610, img : '8.jpg' },
+        { width : 800, height : 1280, img : '9.jpg' }
+    ];
+
+    new Slider({
+        'dom' : document.getElementById('canvas'),
+        'list' : list
+    });
+    </script>
+</body>
+</html>
